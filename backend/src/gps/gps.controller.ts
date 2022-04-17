@@ -1,8 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { GpsService } from './gps.service';
 import { CreateGpDto } from './dto/create-gp.dto';
 import { UpdateGpDto } from './dto/update-gp.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('gps')
 @Controller('gps')
 export class GpsController {
   constructor(private readonly gpsService: GpsService) {}

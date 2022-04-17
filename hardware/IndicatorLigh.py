@@ -2,9 +2,6 @@ import RPi.GPIO as GPIO
 import time as time
 
 class IndicaorLight:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
 
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(17, GPIO.OUT) #Power
@@ -23,15 +20,15 @@ class IndicaorLight:
     pwm1.start(0)
     pwm2.start(0)
 
-    def DetectRight():
-        pwm1.ChangeDutyCycle(10)
-        time.sleep(0.5)
-        pwm1.ChangeDutyCycle(0)
-    
-    def DetectLeft():
-        pwm2.ChangeDutyCycle(10)
-        time.sleep(0.5)
-        pwm2.ChangeDutyCycle(0)
-    
-    def PowerOn():
-        pwm0.ChangeDutyCycle(10)
+def DetectRight(self):
+    self.pwm1.ChangeDutyCycle(10)
+    time.sleep(0.5)
+    self.pwm1.ChangeDutyCycle(0)
+
+def DetectLeft(self):
+    self.pwm2.ChangeDutyCycle(10)
+    time.sleep(0.5)
+    self.pwm2.ChangeDutyCycle(0)
+
+def PowerOn(self):
+    self.pwm0.ChangeDutyCycle(10)

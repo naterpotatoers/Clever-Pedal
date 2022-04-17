@@ -1,9 +1,23 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { GpsModule } from './gps/gps.module';
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '34.83.115.235',
+      port: 3306,
+      username: 'root',
+      password: 'izzys@crackhead',
+      database: 'db_v1',
+      entities: [],
+      synchronize: true,
+    }),
+    GpsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

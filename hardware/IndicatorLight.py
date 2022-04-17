@@ -39,3 +39,13 @@ class IndicatorLight:
         self.pwm1.ChangeDutyCycle(0)
         self.pwm2.ChangeDutyCycle(0)
 
+    def Emergency(self):
+        for i in range(0,3):
+            self.pwm0.ChangeDutyCycle(10)
+            self.pwm1.ChangeDutyCycle(10)
+            self.pwm2.ChangeDutyCycle(10)
+            time.sleep(0.5)
+            self.pwm0.ChangeDutyCycle(0)
+            self.pwm1.ChangeDutyCycle(0)
+            self.pwm2.ChangeDutyCycle(0)
+            time.sleep(0.5)

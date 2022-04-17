@@ -1,9 +1,14 @@
 from gpiozero import Button
-class Button:
-    button = Button(2)
+from IndicatorLight import IndicatorLight
+lightsys = IndicatorLight()
+button = Button(2)
 
-    def ButtonPressed(self):
-        self.button.wait_for_press()
-        print("Pressed")
-        self.button.wait_for_release()
-        return True
+def ButtonPressed():
+    button.wait_for_press()
+    print("MWERGENCYYYPressed")
+    button.wait_for_release()
+    lightsys.Emergency
+    return True
+
+while True:
+    ButtonPressed()

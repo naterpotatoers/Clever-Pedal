@@ -5,6 +5,10 @@ import depthai as dai
 import numpy as np
 import time
 from IndicatorLight import IndicatorLight
+import pygame
+
+pygame.init()
+Sound = pygame.mixer.Sound('car_detected_sound.ogg')
 
 lightsys = IndicatorLight()
 lightsys.PowerOn()
@@ -179,10 +183,14 @@ with dai.Device(pipeline) as device:
                 y_length = detection.ymax - detection.ymin
                 if label == "car" and x_length > 0.3 and y_length > 0.3 and x_value > 0.5:
                     print("Left")
+                    Sound.play()
                     lightsys.DetectRight()
+                    Sound.stop()
                 if label == "car" and x_length > 0.3 and y_length > 0.3 and x_value < 0.5:
                     print("Right")
+                    Sound.play()
                     lightsys.DetectLeft()
+                    Sound.stop()
                     #print("(",x_value,",",y_value,")")
                     #print("Detection coordinates: ", "(",detection.xmin, detection.ymin,")","(", detection.xmax, detection.ymax,")")
                 #print("Label TRY: ", label)

@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//const mapStyles = {
+ // width: '30%',
+  //height: '30%'
+//};
+
+export class MapContainer extends Component {
+  render() {
+    return (
+      <div class="container-sm">
+      <Map
+        google={this.props.google}
+        zoom={14}
+        //style={mapStyles}
+        initialCenter={
+          {
+            lat: 38.5382364,
+            lng: -121.7639012
+          }
+        }
+      />
+      </div>
+
+    );
+  }
 }
 
-export default App;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyCdO_herTm3v35fF-I8zbrxyUALb287WiI'
+})(MapContainer);

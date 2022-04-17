@@ -31,13 +31,9 @@ def DetectLeft(self):
     self.pwm2.ChangeDutyCycle(0)
 
 def PowerOn(self):
-<<<<<<< HEAD
     self.pwm0.ChangeDutyCycle(10)
 
 def PowerOff(self):
     self.pwm0.ChangeDutyCycle(0)
     self.pwm1.ChangeDutyCycle(0)
     self.pwm2.ChangeDutyCycle(0)
-=======
-    self.pwm0.ChangeDutyCycle(10)
->>>>>>> dcc6a352e1314b33ec487d06fcf494ed659ad4d1

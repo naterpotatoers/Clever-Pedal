@@ -1,13 +1,13 @@
-#!/usr/bin/env python3
-
 from pathlib import Path
 import sys
 import cv2
 import depthai as dai
 import numpy as np
 import time
-import IndicatorLigh.py as indicator
+from IndicatorLight import IndicatorLight
 
+lightsys = IndicatorLight()
+lightsys.PowerOn()
 # Get argument first
 nnBlobPath = str((Path(__file__).parent / Path('../models/yolo-v4-tiny-tf_openvino_2021.4_6shave.blob')).resolve().absolute())
 if 1 < len(sys.argv):
@@ -161,6 +161,7 @@ with dai.Device(pipeline) as device:
         # If the frame is available, draw bounding boxes on it and show the frame
         height = frame.shape[0]
         width  = frame.shape[1]
+        
         for detection in detections:
             # Denormalize bounding box
             x1 = int(detection.xmin * width)
@@ -179,15 +180,17 @@ with dai.Device(pipeline) as device:
                     if x_length > 0.3 and y_length > 0.3:
                         #print(x_length, "X", y_length)
                         if (x_value > 0.5):
-                            indicator.DetectRight()
+                            print("Left")
+                            lightsys.DetectRight()
                         if (x_value < 0.5):
-                            indicator.DetectLeft()
+                            print("Right")
+                            lightsys.DetectLeft()
                     #print("(",x_value,",",y_value,")")
                     #print("Detection coordinates: ", "(",detection.xmin, detection.ymin,")","(", detection.xmax, detection.ymax,")")
                 #print("Label TRY: ", label)
             except:
-                label = detection.label
-                print("Label:", label)
+                label = labelMap[detection.label]
+                #print("Label:", label)
                 if label == "car":
                     #print("Detection coordinates: ", "(",detection.xmin, detection.ymin,")","(", detection.xmax, detection.ymax,")")
                     cv2.putText(frame, str(label), (x1 + 10, y1 + 20), cv2.FONT_HERSHEY_TRIPLEX, 0.5, 255)
@@ -204,4 +207,6 @@ with dai.Device(pipeline) as device:
         cv2.resizeWindow("rgb",600,600)
 
         if cv2.waitKey(1) == ord('q'):
+            lightsys.PowerOff()
             break
+

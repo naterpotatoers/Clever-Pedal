@@ -1,6 +1,9 @@
 # Clever-Pedal
-[HackDavis 2022 DevPost](https://devpost.com/software/clever-pedal?ref_content=user-portfolio&ref_feature=in_progress)  
-[Example of Detection System](https://www.youtube.com/watch?v=2MDFLkDRcWE)
+
+
+### **_Winner of Most Technically Challenging Hack at HackDavis 2022_**
+
+![](3D-models/bike.png)
 
 
 ## Inspiration
@@ -14,6 +17,28 @@ To begin, we created an image detection software by using the depthapi python li
 For the button functionality, a separate thread was ran. It would constantly check if the button was pressed. Once it sensed the button was pressed, it would activate the Twilio api and send a message to a predefined number. It would also activate the speaker which would play the emergency siren. 
 The hardware was done using a raspberry pi, led lights, perf boards, a homemade battery, a JBL speaker, buck converter, and 3D printed components. We had one shot at printing the basket which thankfully worked out for us. We also printed the light indicator platform to hold attach the lights to the handle bars. We soldered terminals to a buck converter to adjust the voltage from the battery to the rpi. We also soldered components to the perf board. We then hooked up the equipment to our bike and took it for a test drive!
 Lastly, we built a website. Our backend was built using NestJs and was fully documented with Swagger. The database was created with MySQL and Type ORM. The database was hosted using Google Cloud Platform SQL Server. We attempted to host our backend on Google Cloud Platform VM but it was not successful and we weren't able to solve the problem in time. The frontend was built with React and custom CSS. The front end pulls data the GPS data from the backend. We also implemented a Google Map API. The goal for this was to store coordinates and send the location of the biker during an emergency. Although this wasn't able to be fully implemented. 
+
+### System Design 
+
+![](3D-models/high-level-architecture.png)
+
+## Implementation
+
+### Basket
+
+![](3D-models/box.png)
+
+### Handle Bars Indicator Lights & Emergency Button
+
+![](3D-models/box-2.png)
+
+### Frontend
+
+![](3D-models/frontend.png)
+
+### Backend
+
+![](3D-models/backend.png)
 
 ## Challenges we ran into
 We ran into issues when it came to getting all of the different components working together. We faced a lot of lag due to the memory consumption of all the different devices and scripts. We ended up optimizing the code base and separating the components to run in different scripts to overcome this issue. 
@@ -33,3 +58,9 @@ Adren - I learned a lot about Python and how to work with a raspberry pi.
 
 ## What's next for Clever Pedal
 There were a few things we weren't able to accomplish in 24 hours. One of which was a fully functional GPS system. The goal would be that the biker could store location information whenever they wished and could use it as a way to track their travels. The GPS had an alternative usage when it came to pressing the emergency button. Rather than simply texting your emergency contact you need help, it would also send your exact location. We also aspired to have a more fleshed out website. The website would display mark
+
+## Additional Links
+
+- [HackDavis 2022 DevPost](https://devpost.com/software/clever-pedal?ref_content=user-portfolio&ref_feature=in_progress)  
+- [Example of Detection System](https://www.youtube.com/watch?v=2MDFLkDRcWE)
+- [Documentation (POR) Link](https://docs.google.com/presentation/d/1N1Z3DWPM_wN-qjHn_0G9r_jxHMJTLNK-8U0L55XiKXY/edit?usp=sharing)

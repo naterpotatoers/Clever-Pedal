@@ -1,5 +1,7 @@
 # Clever-Pedal
-[HackDavis 2022 Project](https://devpost.com/software/clever-pedal?ref_content=user-portfolio&ref_feature=in_progress)
+[HackDavis 2022 DevPost](https://devpost.com/software/clever-pedal?ref_content=user-portfolio&ref_feature=in_progress)  
+[Example of Detection System](https://www.youtube.com/watch?v=2MDFLkDRcWE)
+
 
 ## Inspiration
 Living in Davis, we are surrounded by bikers risking their lives everyday by braving the roads with ignorant drivers. We can't force everyone to retake driver's education, so we decided to give bikers the tools they need to insure their safety. Additionally, bikers can be in dangerous situations by traveling alone. If they have an injury or feel threatened they should have a quick way to alert someone of their situation. 
